@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Forecast · STOCKORA</title>
+  <link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/dashboard.css"><link rel="stylesheet" href="/static/css/theme.css">
+  <script defer src="/static/js/plotly.min.js"></script><script defer src="/static/js/api.js"></script><script defer src="/static/js/app.js"></script><script defer src="/static/js/forecast.js"></script>
+</head>
+<body data-page="forecast"><div id="page-content">
+  <section class="page-heading"><div><p class="eyebrow">PREDICTIVE PLANNING</p><h1>Forecast demand</h1><p class="muted">Choose a product. STOCKORA learns from its sales history and predicts the next seven days.</p></div><span class="model-chip">✦ Statsmodels · Weekly seasonality</span></section>
+  <section class="panel forecast-selector-panel"><div class="selector-copy"><span class="step-number">01</span><div><h2>Which product do you want to forecast?</h2><p class="muted small">No forecasting knowledge needed. Select a product and generate a fresh prediction.</p></div></div>
+    <div class="selector-controls"><label class="field-label">Select product<select id="forecast-product" class="form-control"></select></label><div class="forecast-period"><span class="field-label">Forecast period</span><div class="period-fixed">Next 7 days <span>⌄</span></div></div><button id="generate-forecast" class="button button-primary">Generate forecast <span>→</span></button></div>
+    <p id="forecast-feedback" class="form-feedback" aria-live="polite"></p>
+  </section>
+  <section id="forecast-results" class="hidden">
+    <div class="section-title-row"><div><p class="eyebrow">MODEL OUTPUT</p><h2>Forecast summary <span id="forecast-product-name" class="inline-subtitle"></span></h2></div><span id="forecast-reliability-badge" class="status-badge">—</span></div>
+    <div class="summary-grid">
+      <article class="summary-card"><span>Historical average</span><strong id="forecast-average">—</strong><small>Units per day</small></article>
+      <article class="summary-card"><span>7-day forecast total</span><strong id="forecast-total">—</strong><small>Predicted units</small></article>
+      <article class="summary-card"><span>MAE</span><strong id="forecast-mae">—</strong><small>Lower is closer to actual</small></article>
+      <article class="summary-card"><span>RMSE</span><strong id="forecast-rmse">—</strong><small>Penalizes larger errors</small></article>
+    </div>
+    <article class="panel reliability-panel"><div class="reliability-symbol">◎</div><div><h3 id="reliability-title">Forecast reliability</h3><p id="reliability-reason" class="muted small"></p><p class="fine-print">Rule: normalized MAE = MAE ÷ historical average. Reliable ≤ 15%; Moderate ≤ 30%; otherwise Low Reliability.</p></div></article>
+    <div class="forecast-day-grid" id="forecast-days"></div>
+    <article class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">ACTUAL VS PREDICTED</p><h2>Demand timeline</h2><p class="muted small">The dashed section begins at the forecast start marker.</p></div><span class="date-range-chip" id="forecast-date-range">—</span></div><div id="forecastChart" class="chart-area"><div class="loading-state">Preparing chart…</div></div></article>
+    <article class="panel forecast-reorder" id="forecast-reorder"><div><p class="eyebrow">INVENTORY CHECK</p><h2>What should you reorder?</h2><p id="forecast-reorder-text" class="muted small">—</p></div><a id="forecast-inventory-link" class="button button-secondary" href="/inventory">View inventory →</a></article>
+  </section>
+</div></body></html>

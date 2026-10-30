@@ -1,0 +1,1 @@
+"""STOCKORA backend package."""
