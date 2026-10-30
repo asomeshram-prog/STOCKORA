@@ -1,4 +1,12 @@
 ﻿{
-  "cleanUrls": true,
-  "trailingSlash": false
+  "rewrites": [
+    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/forecast", "destination": "/forecast.html" },
+    { "source": "/upload", "destination": "/upload.html" },
+    { "source": "/alerts", "destination": "/alerts.html" },
+    { "source": "/analytics", "destination": "/analytics.html" },
+    { "source": "/product", "destination": "/product.html" },
+    { "source": "/settings", "destination": "/settings.html" },
+    { "source": "/inventory", "destination": "/inventory.html" }
+  ]
 }
