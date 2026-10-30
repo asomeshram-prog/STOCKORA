@@ -1,8 +1,8 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard · STOCKORA</title>
+  <title>Dashboard Â· STOCKORA</title>
   <link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/dashboard.css"><link rel="stylesheet" href="/static/css/theme.css">
   <script defer src="/static/js/plotly.min.js"></script><script defer src="/static/js/api.js"></script><script defer src="/static/js/app.js"></script><script defer src="/static/js/dashboard.js"></script>
 </head>
@@ -10,39 +10,40 @@
   <div id="page-content">
     <section class="page-heading">
       <div><p class="eyebrow">OVERVIEW</p><h1>Dashboard</h1><p class="muted">A clear view of demand, stock health and what needs attention.</p></div>
-      <div class="heading-actions"><span class="live-pill"><i></i> Live inventory view</span><a class="button button-primary" href="/forecast">Generate forecast <span>↗</span></a></div>
+      <div class="heading-actions"><span class="live-pill"><i></i> Live inventory view</span><a class="button button-primary" href="/forecast.html">Generate forecast <span>â†—</span></a></div>
     </section>
     <section class="kpi-grid" id="dashboard-kpis">
-      <article class="kpi-card"><div class="kpi-top"><span>Total products</span><span class="kpi-icon blue">▦</span></div><strong id="kpi-products">—</strong><small>Active catalogue</small></article>
-      <article class="kpi-card"><div class="kpi-top"><span>Forecasted products</span><span class="kpi-icon cyan">⌁</span></div><strong id="kpi-forecasted">—</strong><small>With saved 7-day forecasts</small></article>
-      <article class="kpi-card"><div class="kpi-top"><span>Products at risk</span><span class="kpi-icon amber">⚑</span></div><strong id="kpi-risk">—</strong><small>Demand may exceed stock cover</small></article>
-      <article class="kpi-card"><div class="kpi-top"><span>Reorder required</span><span class="kpi-icon red">↗</span></div><strong id="kpi-reorder">—</strong><small>Calculated from forecast demand</small></article>
-      <article class="kpi-card kpi-performance"><div class="kpi-top"><span>Forecast performance</span><span class="kpi-icon green">◎</span></div><strong id="kpi-performance">—</strong><small id="kpi-performance-note">Average error-based estimate</small></article>
+      <article class="kpi-card"><div class="kpi-top"><span>Total products</span><span class="kpi-icon blue">â–¦</span></div><strong id="kpi-products">â€”</strong><small>Active catalogue</small></article>
+      <article class="kpi-card"><div class="kpi-top"><span>Forecasted products</span><span class="kpi-icon cyan">âŒ</span></div><strong id="kpi-forecasted">â€”</strong><small>With saved 7-day forecasts</small></article>
+      <article class="kpi-card"><div class="kpi-top"><span>Products at risk</span><span class="kpi-icon amber">âš‘</span></div><strong id="kpi-risk">â€”</strong><small>Demand may exceed stock cover</small></article>
+      <article class="kpi-card"><div class="kpi-top"><span>Reorder required</span><span class="kpi-icon red">â†—</span></div><strong id="kpi-reorder">â€”</strong><small>Calculated from forecast demand</small></article>
+      <article class="kpi-card kpi-performance"><div class="kpi-top"><span>Forecast performance</span><span class="kpi-icon green">â—Ž</span></div><strong id="kpi-performance">â€”</strong><small id="kpi-performance-note">Average error-based estimate</small></article>
     </section>
 
     <section class="content-grid dashboard-main-grid">
       <article class="panel chart-panel">
         <div class="panel-heading"><div><p class="eyebrow">DEMAND INTELLIGENCE</p><h2>Demand forecast</h2><p class="muted small">Historical actuals connected to the next seven predicted days.</p></div><label class="select-wrap"><span class="sr-only">Select product for demand chart</span><select id="dashboard-product-select"></select></label></div>
-        <div id="demandChart" class="chart-area"><div class="loading-state">Loading demand history…</div></div>
+        <div id="demandChart" class="chart-area"><div class="loading-state">Loading demand historyâ€¦</div></div>
         <div class="chart-legend"><span><i class="legend-dot actual"></i>Actual demand</span><span><i class="legend-dot predicted"></i>7-day forecast</span><span><i class="legend-mark"></i>Forecast start</span></div>
         <div class="chart-metrics">
-          <div><span>Historical average</span><strong id="chart-average">—</strong></div>
-          <div><span>7-day forecast</span><strong id="chart-total">—</strong></div>
-          <div><span>MAE</span><strong id="chart-mae">—</strong></div>
-          <div><span>RMSE</span><strong id="chart-rmse">—</strong></div>
-          <div><span>Reliability</span><strong id="chart-reliability" class="status-text">—</strong></div>
+          <div><span>Historical average</span><strong id="chart-average">â€”</strong></div>
+          <div><span>7-day forecast</span><strong id="chart-total">â€”</strong></div>
+          <div><span>MAE</span><strong id="chart-mae">â€”</strong></div>
+          <div><span>RMSE</span><strong id="chart-rmse">â€”</strong></div>
+          <div><span>Reliability</span><strong id="chart-reliability" class="status-text">â€”</strong></div>
         </div>
       </article>
       <article class="panel insight-panel">
-        <div class="panel-heading"><div><p class="eyebrow">STOCK HEALTH</p><h2>Attention needed</h2></div><a class="text-link" href="/inventory">View all ↗</a></div>
-        <div id="dashboard-attention" class="attention-list"><div class="loading-state">Calculating stock health…</div></div>
+        <div class="panel-heading"><div><p class="eyebrow">STOCK HEALTH</p><h2>Attention needed</h2></div><a class="text-link" href="/inventory.html">View all â†—</a></div>
+        <div id="dashboard-attention" class="attention-list"><div class="loading-state">Calculating stock healthâ€¦</div></div>
         <div class="panel-footnote"><span class="pulse-dot"></span>Recommendations update when sales or stock levels change.</div>
       </article>
     </section>
 
     <section class="panel table-panel">
-      <div class="panel-heading"><div><p class="eyebrow">REPLENISHMENT</p><h2>Priority inventory</h2><p class="muted small">Products ranked by stock risk and calculated reorder quantity.</p></div><a class="text-link" href="/inventory">Full inventory →</a></div>
-      <div class="table-scroll"><table class="data-table"><thead><tr><th>Product</th><th>Current stock</th><th>Incoming</th><th>7-day demand</th><th>Reorder qty</th><th>Status</th><th></th></tr></thead><tbody id="dashboard-inventory"><tr><td colspan="7" class="empty-cell">Loading inventory…</td></tr></tbody></table></div>
+      <div class="panel-heading"><div><p class="eyebrow">REPLENISHMENT</p><h2>Priority inventory</h2><p class="muted small">Products ranked by stock risk and calculated reorder quantity.</p></div><a class="text-link" href="/inventory.html">Full inventory â†’</a></div>
+      <div class="table-scroll"><table class="data-table"><thead><tr><th>Product</th><th>Current stock</th><th>Incoming</th><th>7-day demand</th><th>Reorder qty</th><th>Status</th><th></th></tr></thead><tbody id="dashboard-inventory"><tr><td colspan="7" class="empty-cell">Loading inventoryâ€¦</td></tr></tbody></table></div>
     </section>
   </div>
 </body></html>
+
